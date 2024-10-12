@@ -25,3 +25,21 @@ body {
     text-wrap: balance;
   }
 }
+
+.inner {
+  background-color: black 
+}
+
+.inner .page{
+  background-color: white;
+}
+
+.inner .slide{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}

@@ -1,0 +1,31 @@
+'use client';
+
+import { motion } from "framer-motion";
+import React from "react";
+import { useEffect } from "react";
+
+export const TransitionWrapper = ({ children, isTransitioning }: { children: React.ReactNode, isTransitioning: boolean }) => {
+    useEffect(() => {
+        console.log('Transitioning state:', isTransitioning);
+    }, [isTransitioning]);
+
+    return (
+        <>
+            {isTransitioning && (
+                <motion.div
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-100%" }}
+                    transition={{
+                        duration: 0.3,
+                        delay: 0.5,
+                    }}
+                    className="fixed top-0 left-0 w-screen h-screen bg-neutral-800 z-50"
+                />
+            )}
+            <div>
+                {children}
+            </div>
+        </>
+    );
+};
