@@ -17,10 +17,11 @@ export const TransitionWrapper = ({ children, isTransitioning }: { children: Rea
                     animate={{ y: 0 }}
                     exit={{ y: "-100%" }}
                     transition={{
-                        duration: 0.3,
+                        duration: 0.5,
                         delay: 0.5,
+                        ease: "easeInOut",
                     }}
-                    className="fixed top-0 left-0 w-screen h-screen bg-neutral-800 z-50"
+                    className="fixed top-0 left-0 w-screen h-screen bg-neutral-900 z-50"
                 />
             )}
             <div>

@@ -1,7 +1,6 @@
 'use client'
 
-import Image from "next/image";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { TransitionWrapper } from "./codelab/components";
@@ -10,86 +9,144 @@ export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const router = useRouter();
 
-  const handleTransition = () => {
+  const handleTransition = (route: string) => {
     setIsTransitioning(true);
     setTimeout(() => {
-      // Delay the navigation after the transition covers the current page
-      router.push('/codelab');
-    }, 1300); // Adjust the delay to match the timing of the transition
-  };
+      router.push(route);
+    }, 1000);
+};
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ul className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Hello
-          </li>
-          <li>Welcome</li>
-        </ul>
+    <div className="flex h-full w-full flex-col items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
+      <motion.div
+        className="fixed top-0 left-0 w-full h-full bg-neutral-900 z-50"
+        initial={{ y: 0 }}
+        animate={{ y: "-100%" }}
+        transition={{ duration: 0.8, delay: 0.8, ease: "easeInOut" }}
+      >
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeIn" }}
+          className="flex h-full w-full justify-center items-center text-6xl font-bold">
+          <h1>Hi </h1>
+        </motion.div>
+      </motion.div>
+      <header className="flex w-full h-full flex-col items-center sm:items-start border-b border-black/[.08] dark:border-white/[.145]">
+        <motion.div 
+          className="flex w-full justify-between text-wrap cursor-default font-semibold text-[16rem]"
+          whileHover="hover"          
+          style={{ fontSize: 'clamp(3rem, 12vw, 16rem)', lineHeight: '1' }}
+        >
+          {/* first name */}
+          <div className="flex" title="This is my First Name">
+              <h1>H</h1>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                variants={{
+                  hover: { opacity: 1, transition: { duration: 0.1, ease: "easeInOut" } }
+                }}
+              >
+                I
+              </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                variants={{
+                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.03, ease: "easeInOut" } }
+                }}
+              >
+                L
+              </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                variants={{
+                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.06, ease: "easeInOut" } }
+                }}
+              >
+                M
+              </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                variants={{
+                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.09, ease: "easeInOut" } }
+                }}
+              >
+                Y
+              </motion.h1>
+          </div>
+          {/* last name */}
+          <div className="flex" title="This is my Last Name">
+            <h1>R</h1>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              variants={{
+                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.12, ease: "easeInOut" } }
+              }}
+            >
+              A
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              variants={{
+                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.15, ease: "easeInOut" } }
+              }}
+            >
+              S
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              variants={{
+                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.18, ease: "easeInOut" } }
+              }}
+            >
+              Y
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              variants={{
+                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.21, ease: "easeInOut" } }
+              }}
+            >
+              A
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0 }}
+              variants={{
+                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.24, ease: "easeInOut" } }
+              }}
+            >
+              D
+            </motion.h1>
+          </div>
+        </motion.div>
+      </header>
 
+      <main>
+        <div className="flex w-full gap-10">
+          <div className="flex-1 flex-col w-1/4">
+            <h1 className="font-semibold">Location</h1>
+            <p className="font-light">Bandung, Indonesia</p>
+          </div>
+          <div className="flex-1 flex-col w-1/4">
+            <h1 className="font-semibold">Contact</h1>
+            <p className="font-light">hilmyrasyad1998@gmail.com</p>
+          </div>
+          <div className="flex-2 flex-col w-2/4">
+            <h1 className="text-4xl font-medium">Self thought Front End Developer with Creative Thinking.</h1>
+            <p className="text-2xl font-extralight">Started as a designer for social media needs, Furniture, and Web Design. Now has been creating some project as a Web Designer and Frontend Developer  </p>
+          </div>
+        </div>
+      </main>
+
+      <footer>
         <TransitionWrapper isTransitioning={isTransitioning}>
           <button
             className="rounded-md border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            onClick={handleTransition}
+            onClick={() => handleTransition('/codelab')}
           >
             Go To CodeLab
           </button>
         </TransitionWrapper>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="/codelab"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Codelab
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </Link>
-        <Link
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </Link>
       </footer>
     </div>
   );

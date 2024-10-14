@@ -14,7 +14,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hilmy - FrontEndDev",
+  title: "Hilmy | Creative Developer",
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export default function RootLayout({
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex h-full w-full ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

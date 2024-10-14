@@ -1,7 +1,7 @@
 export default function page() {
 
     return (
-        <div>
+        <div className="flex flex-col">
             <div className="border-b border-solid border-black/[.08] dark:border-white/[.145]">
                 <h1 className="text-[5rem] font-bold">
                     CodeLab
