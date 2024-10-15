@@ -1,9 +1,10 @@
 'use client'
 import Link from "next/link";
-import { Sidebar, TransitionWrapper } from "./components";
+import { Sidebar } from "./components";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { TransitionWrapper } from "../components";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const [isTransitioning, setIsTransitioning] = useState(false);

@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { TransitionWrapper } from "./codelab/components";
+import { TransitionWrapper, WavyText } from "./components";
+import { Header } from "./components";
 
 export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMainExpanded, setIsMainExpanded] = useState(false);
   const router = useRouter();
 
   const handleTransition = (route: string) => {
@@ -14,7 +16,11 @@ export default function Home() {
     setTimeout(() => {
       router.push(route);
     }, 1000);
-};
+  };
+
+  const toggleMain = () => {
+    setIsMainExpanded((prev) => !prev);
+  };
 
   return (
     <div className="flex h-full w-full flex-col items-center min-h-screen px-8 gap-16 font-[family-name:var(--font-geist-sans)]">
@@ -29,114 +35,49 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeIn" }}
           className="flex h-full w-full justify-center items-center text-6xl font-bold">
-          <h1>Hi </h1>
+          <h1>Hi</h1>
         </motion.div>
       </motion.div>
-      <header className="flex w-full h-full flex-col items-center sm:items-start border-b border-black/[.08] dark:border-white/[.145]">
-        <motion.div 
-          className="flex w-full justify-between text-wrap cursor-default font-semibold text-[16rem]"
-          whileHover="hover"          
-          style={{ fontSize: 'clamp(3rem, 12vw, 16rem)', lineHeight: '1' }}
-        >
-          {/* first name */}
-          <div className="flex" title="This is my First Name">
-              <h1>H</h1>
-              <motion.h1
-                initial={{ opacity: 0 }}
-                variants={{
-                  hover: { opacity: 1, transition: { duration: 0.1, ease: "easeInOut" } }
-                }}
-              >
-                I
-              </motion.h1>
-              <motion.h1
-                initial={{ opacity: 0 }}
-                variants={{
-                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.03, ease: "easeInOut" } }
-                }}
-              >
-                L
-              </motion.h1>
-              <motion.h1
-                initial={{ opacity: 0 }}
-                variants={{
-                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.06, ease: "easeInOut" } }
-                }}
-              >
-                M
-              </motion.h1>
-              <motion.h1
-                initial={{ opacity: 0 }}
-                variants={{
-                  hover: { opacity: 1, transition: { duration: 0.1, delay: 0.09, ease: "easeInOut" } }
-                }}
-              >
-                Y
-              </motion.h1>
-          </div>
-          {/* last name */}
-          <div className="flex" title="This is my Last Name">
-            <h1>R</h1>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              variants={{
-                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.12, ease: "easeInOut" } }
-              }}
-            >
-              A
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              variants={{
-                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.15, ease: "easeInOut" } }
-              }}
-            >
-              S
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              variants={{
-                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.18, ease: "easeInOut" } }
-              }}
-            >
-              Y
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              variants={{
-                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.21, ease: "easeInOut" } }
-              }}
-            >
-              A
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              variants={{
-                hover: { opacity: 1, transition: { duration: 0.1, delay: 0.24, ease: "easeInOut" } }
-              }}
-            >
-              D
-            </motion.h1>
-          </div>
-        </motion.div>
-      </header>
 
-      <main>
-        <div className="flex w-full gap-10">
-          <div className="flex-1 flex-col w-1/4">
+      <div className="flex flex-col w-full gap-1">
+        <Header />
+        <div>
+          <motion.button 
+            onClick={toggleMain}
+            title="Checkout Information about me"
+          >
+            <WavyText text="Information" />
+          </motion.button>
+        </div>
+      </div>
+
+
+      <motion.main
+        className="overflow-hidden border-b border-black/[.08] dark:border-white/[.145]"
+        initial={{ height: 0 }} // Start collapsed
+        animate={{ height: isMainExpanded ? "auto" : 0 }} // Animate height based on state
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <div className="flex flex-col lg:flex-row w-full gap-10">
+          <div className="flex-1 flex flex-col w-full lg:w-1/4">
             <h1 className="font-semibold">Location</h1>
             <p className="font-light">Bandung, Indonesia</p>
           </div>
-          <div className="flex-1 flex-col w-1/4">
+          <div className="flex-1 flex flex-col w-full lg:w-1/4">
             <h1 className="font-semibold">Contact</h1>
             <p className="font-light">hilmyrasyad1998@gmail.com</p>
           </div>
-          <div className="flex-2 flex-col w-2/4">
-            <h1 className="text-4xl font-medium">Self thought Front End Developer with Creative Thinking.</h1>
-            <p className="text-2xl font-extralight">Started as a designer for social media needs, Furniture, and Web Design. Now has been creating some project as a Web Designer and Frontend Developer  </p>
+          <div className="flex-2 flex flex-col w-full lg:w-2/4 pb-10 lg:mt-0">
+            <h1 className="text-2xl lg:text-4xl font-medium">
+              Self-taught Front End Developer with Creative Thinking.
+            </h1>
+            <p className="text-xl lg:text-2xl font-extralight">
+              Started as a designer for social media needs, Furniture, and Web Design.
+              Now has been creating some projects as a Web Designer and Frontend Developer.
+            </p>
           </div>
         </div>
-      </main>
+      </motion.main>
 
       <footer>
         <TransitionWrapper isTransitioning={isTransitioning}>
