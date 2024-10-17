@@ -24,7 +24,7 @@ export const Hero = () => {
         }
     });
 
-    const combinedX = useTransform([continuousX, scrollX], ([contX, scrX]) => contX + scrX);
+    const combinedX = useTransform([continuousX, scrollX], ([contX, scrX]: number[]) => contX + scrX);
     
     useEffect(() => {
         const lenis = new Lenis({
