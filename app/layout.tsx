@@ -13,6 +13,12 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const micro5 = localFont({
+  src: "./fonts/Micro5-Regular.ttf",
+  variable: "--font-micro5",
+  weight: "500"
+})
+
 export const metadata: Metadata = {
   title: "Hilmy | Creative Developer",
   icons: {
@@ -28,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex h-full w-full ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex h-full w-full ${geistSans.variable} ${geistMono.variable} ${micro5.variable} antialiased`}
       >
         {children}
       </body>

@@ -3,12 +3,6 @@
 import { motion, MotionValue, useAnimationFrame, useMotionValue, useScroll, useTransform } from "framer-motion";
 import Lenis from "lenis";
 import { useEffect, useRef } from "react";
-import { Micro_5 } from '@next/font/google'
-
-const micro5 = Micro_5({
-    subsets: ['latin'],
-    weight: '400',
-});
 
 export const Hero = () => {
     const ref = useRef(null);
@@ -54,18 +48,18 @@ export const Hero = () => {
         <div 
             className="flex flex-col items-start w-full text-[10rem] overflow-hidden"
         >
-            <div className={`text-center ${micro5.className}`}>
+            <div className="text-center">
                 <motion.p
                     className="-mt-10 -mb-20"
                     animate="animate"
-                    style={{ x: combinedX  }}
+                    style={{ x: combinedX,  fontFamily: 'var(--font-micro5)' }}
                 >
                     CREATIVE
                 </motion.p>
                 <motion.p
                     className="-mb-20"
                     animate="animate"
-                    style={{ x: combinedX  }}
+                    style={{ x: combinedX, fontFamily: 'var(--font-micro5)'  }}
                     
                 >
                     INDEPENDENT
@@ -73,7 +67,7 @@ export const Hero = () => {
                 <motion.p
                     className="-mb-10"
                     animate="animate"
-                    style={{ x: combinedX  }}
+                    style={{ x: combinedX, fontFamily: 'var(--font-micro5)'  }}
                 >
                     DEVELOPER
                 </motion.p>
