@@ -19,7 +19,7 @@ export const TransitionWrapper = ({ children, isTransitioning }: { children: Rea
                     transition={{
                         duration: 0.5,
                         delay: 0.5,
-                        ease: "easeInOut",
+                        ease: "circInOut",
                     }}
                     className="fixed top-0 left-0 w-screen h-screen bg-neutral-900 z-50"
                 />

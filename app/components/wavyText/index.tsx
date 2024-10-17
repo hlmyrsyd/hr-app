@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from "framer-motion";
+import { easeIn, motion } from "framer-motion";
 import { useState } from "react";
 
 export const WavyText = ({ text }: { text: string }) => {
@@ -8,14 +8,14 @@ export const WavyText = ({ text }: { text: string }) => {
 
     const letterVariants = {
         initial: { y: 0 }, // Default position
-        hover: { y: -18, transition: { ease: "easeInOut", duration: 0.5 } }, // Moves up on hover
+        hover: { y: -22, transition: { ease: "easeInOut", duration: 0.5 } }, // Moves up on hover
         exit: { y: 0, transition: { ease: "easeInOut", duration: 0.5 } }, // Moves down on hover exit
     };
 
     const secondVariants = {
-        initial: { y: 19 }, // Default position
+        initial: { y: 20 }, // Default position
         hover: { y: 0, transition: { ease: "easeInOut", duration: 0.4 } }, // Moves up on hover
-        exit: { y: 19, transition: { ease: "easeInOut", duration: 0.4 } }, // Moves down on hover exit
+        exit: { y: 20, transition: { ease: "easeInOut", duration: 0.4 } }, // Moves down on hover exit
     };
 
     const borderVariants = {
@@ -40,7 +40,7 @@ export const WavyText = ({ text }: { text: string }) => {
     };
 
     return (
-        <div className="inline-block"> {/* Wrap everything in an outer div */}
+        <div className="inline-block text-neutral-300 hover:text-white transition duration-300 delay-100"> {/* Wrap everything in an outer div */}
             {/* Text Animation */}
             <motion.div
                 className="flex flex-col h-5 overflow-hidden"
