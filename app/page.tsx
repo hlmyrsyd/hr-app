@@ -6,6 +6,13 @@ import { useState } from "react";
 import { Hero, ProjectCard, TransitionWrapper, WavyText } from "./components";
 import { Header } from "./components";
 
+interface Project {
+  title: string;
+  description: string;
+  images: string[];
+  toolsImage: string;
+}
+
 export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMainExpanded, setIsMainExpanded] = useState(false);
@@ -23,7 +30,7 @@ export default function Home() {
     setIsMainExpanded((prev) => !prev);
   };
 
-  const projectDetails = [
+  const projectDetails: Project[] = [
     {
       title: 'Project 1',
       description: 'This is a description for project 1.',
@@ -127,7 +134,7 @@ export default function Home() {
       {/* Project */}
       <div className="w-full">
         <div className="grid grid-cols-1">
-          {projectDetails.map((project:any, index:any) => (
+          {projectDetails.map((project, index) => (
             <ProjectCard
               key={index}
               title={project.title}
