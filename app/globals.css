@@ -10,8 +10,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1a1a1a;
     --foreground: #ededed;
+    --font-micro5: 'Micro5', sans-serif;
   }
 }
 

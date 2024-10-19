@@ -3,12 +3,13 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Hero, TransitionWrapper, WavyText } from "./components";
+import { Hero, ProjectCard, TransitionWrapper, WavyText } from "./components";
 import { Header } from "./components";
 
 export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMainExpanded, setIsMainExpanded] = useState(false);
+  const [expandedProjectIndex, setExpandedProjectIndex] = useState<number | null>(null);
   const router = useRouter();
 
   const handleTransition = (route: string) => {
@@ -20,6 +21,25 @@ export default function Home() {
 
   const toggleMain = () => {
     setIsMainExpanded((prev) => !prev);
+  };
+
+  const projectDetails = [
+    {
+      title: 'Project 1',
+      description: 'This is a description for project 1.',
+      images: ['/img1.jpg', '/img2.jpg', '/img3.jpg'],
+      toolsImage: '/tools1.jpg',
+    },
+    {
+      title: 'Project 2',
+      description: 'This is a description for project 2.',
+      images: ['/img4.jpg', '/img5.jpg', '/img6.jpg'],
+      toolsImage: '/tools2.jpg',
+    },
+  ];
+
+  const handleExpand = (index: number) => {
+    setExpandedProjectIndex(expandedProjectIndex === index ? null : index);
   };
 
   return (
@@ -102,41 +122,22 @@ export default function Home() {
         <div className="">
           <Hero /> 
         </div>
-        <svg 
-          viewBox="0 0 600 180"
-          className="absolute top-0 -z-50"
-        >
-          <filter id="noise" x="0" y="0" width="100%" height="100%">
-            <feTurbulence
-              id="feTurbulence"
-              type="fractalNoise"
-              baseFrequency="1"
-              numOctaves="1"
-            >
-              <animate
-                attributeName="seed"
-                from="0"
-                to="100"
-                dur="20s"
-                repeatCount="indefinite"
-              />
-            </feTurbulence>
-            <feBlend in="SourceGraphic" in2="feTurbulence" mode="color-burn" />
-          </filter>
-          <rect
-            x="0"
-            y="0"
-            width="600"
-            height="180"
-            style={{ fill: "#222", filter: "url(#noise)" }}
-          />
-        </svg>
       </div>
 
+      {/* Project */}
       <div className="w-full">
-        <div className="flex flex-col w-full h-full border border-white">
-          <div>Judul</div>
-          <div>Foto</div>
+        <div className="grid grid-cols-1">
+          {projectDetails.map((project:any, index:any) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              images={project.images}
+              toolsImage={project.toolsImage}
+              isExpanded={expandedProjectIndex === index}
+              onExpand={() => handleExpand(index)}
+            />
+          ))}
         </div>
       </div>
 
