@@ -1,15 +1,12 @@
-'use client'
+'use client';
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 interface WavyClickProps {
     isExpanded: boolean;
 }
 
 export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
-    const [isClicked, setIsClicked] = useState(false);
-
     const expandText = "Expand";
     const closeText = "Closed";
 
@@ -47,17 +44,16 @@ export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
     };
 
     return (
-        <div className="inline-block text-neutral-700 hover:text-neutral-800 transition duration-300 delay-100"> {/* Wrap everything in an outer div */}
+        <div className="inline-block text-neutral-700 hover:text-neutral-800 transition duration-300 delay-100">
             {/* Text Animation */}
             <motion.div
                 className="flex flex-col h-5 overflow-hidden"
-                onClick={() => setIsClicked(!isClicked)} // Toggle on click
                 initial="initial"
-                animate={isClicked ? "animate" : "exit"} // Control animation with click state
+                animate={isExpanded ? "animate" : "exit"} // Link animation with isExpanded state
                 variants={containerVariants}
             >
                 <div className="relative top-0">
-                    {closeText.split("").map((letter, index) => (
+                    {expandText.split("").map((letter, index) => (
                         <motion.span
                             key={index}
                             variants={letterVariants}
@@ -68,7 +64,7 @@ export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
                     ))}
                 </div>
                 <div className="relative -top-6">
-                    {expandText.split("").map((letter, index) => (
+                    {closeText.split("").map((letter, index) => (
                         <motion.span
                             key={index}
                             variants={secondVariants}
@@ -80,12 +76,12 @@ export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
                 </div>
             </motion.div>
 
-            {/* Bottom Border Animation - Placed outside of text div */}
-            <motion.div 
-                className="h-[1px] bg-neutral-800 mt-1" // Border settings
+            {/* Bottom Border Animation */}
+            <motion.div
+                className="h-[1px] bg-neutral-800 mt-1"
                 variants={borderVariants}
                 initial="initial"
-                animate={isClicked ? "animate" : "exit"} // Animate based on click state
+                animate={isExpanded ? "animate" : "exit"} // Animate based on isExpanded state
             />
         </div>
     );
