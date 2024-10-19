@@ -8,9 +8,9 @@ import { Header } from "./components";
 
 interface Project {
   title: string;
+  tools: string;
   description: string;
   images: string[];
-  toolsImage: string;
 }
 
 export default function Home() {
@@ -32,16 +32,16 @@ export default function Home() {
 
   const projectDetails: Project[] = [
     {
-      title: 'Project 1',
+      title: 'Salemate',
+      tools: 'nextJs, TailwindCss',
       description: 'This is a description for project 1.',
-      images: ['/img1.jpg', '/img2.jpg', '/img3.jpg'],
-      toolsImage: '/tools1.jpg',
+      images: ['/img1.jpg', '/img2.jpg', '/img3.jpg']
     },
     {
-      title: 'Project 2',
+      title: 'We Rent',
+      tools: 'nextJs',
       description: 'This is a description for project 2.',
-      images: ['/img4.jpg', '/img5.jpg', '/img6.jpg'],
-      toolsImage: '/tools2.jpg',
+      images: ['/img4.jpg', '/img5.jpg', '/img6.jpg']
     },
   ];
 
@@ -138,9 +138,9 @@ export default function Home() {
             <ProjectCard
               key={index}
               title={project.title}
+              tools={project.tools}
               description={project.description}
               images={project.images}
-              toolsImage={project.toolsImage}
               isExpanded={expandedProjectIndex === index}
               onExpand={() => handleExpand(index)}
             />
