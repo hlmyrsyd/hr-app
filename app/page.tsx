@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 // import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Hero, MainContent, ProjectCard, TransitionWrapper, WavyText } from "./components";
+import { 
+  Hero, 
+  MainContent, 
+  ProjectCard, 
+  // TransitionWrapper, 
+  WavyText 
+} from "./components";
 import { Header } from "./components";
 
 interface Project {
