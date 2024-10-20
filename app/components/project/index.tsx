@@ -47,7 +47,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             >
                 {/* Hover Project Text */}
                 <div 
-                    className="cursor-pointer flex p-4 h-full w-full justify-between items-center text-neutral-700 font-[family-name:var(--font-geist-sans)]"
+                    className="cursor-pointer flex p-4 h-full w-full justify-between items-center text-neutral-700"
                 >
                     <motion.h3 
                         className="text-3xl font-semibold hover:text-neutral-700"
@@ -58,15 +58,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     >
                         {title}
                     </motion.h3>
-                    <motion.p
-                        className="text-3xl font-semibold hover:text-neutral-700"
-                        initial={{ y: '-10px', opacity: 0 }}
-                        animate={isHovered ? { y: 0, opacity: 1 } : { opacity: 0 }}
-                        transition={{ delay: 0.2, ease: "circInOut" }}
-                        style={{ fontFamily: 'var(--font-micro5)' }}
-                    >
-                        {tools}
-                    </motion.p>
                     <WavyClick isExpanded={isExpanded} />
                 </div>
             </motion.div>
@@ -86,17 +77,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     transition={{ duration: 0.5, ease: 'circInOut' }}
                     className="overflow-hidden"
                 >
-                    <p>{description}</p>
-                    <div className="flex gap-2 mt-4">
-                        {images.map((image, idx) => (
-                        <Image 
-                            key={idx} 
-                            src={image}
-                            width={100}
-                            height={100}
-                            alt={`Project image ${idx}`} 
-                            className="w-full" />
-                        ))}
+                    <div className="flex flex-col px-4 w-full">
+                        <p className="text-3xl md:w-1/2">{description}</p>
+                        <span>Tools :</span>
+                        <p>{tools}</p>
+                        <div className="flex gap-2 mt-4">
+                            {images.map((image, idx) => (
+                            <Image 
+                                key={idx} 
+                                src={image}
+                                width={100}
+                                height={100}
+                                alt={`Project image ${idx}`} 
+                                className="w-full" />
+                            ))}
+                        </div>
                     </div>
                 </motion.div>
             </div>

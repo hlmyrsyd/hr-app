@@ -11,13 +11,7 @@ import {
   WavyText 
 } from "./components";
 import { Header } from "./components";
-
-interface Project {
-  title: string;
-  tools: string;
-  description: string;
-  images: string[];
-}
+import { projectDetails } from "./data";
 
 export default function Home() {
   // const [isTransitioning, setIsTransitioning] = useState(false);
@@ -36,21 +30,6 @@ export default function Home() {
   const toggleMain = () => {
     setIsMainExpanded((prev) => !prev);
   };
-
-  const projectDetails: Project[] = [
-    {
-      title: 'Salemate',
-      tools: 'nextJs, TailwindCss',
-      description: 'This is a description for project 1.',
-      images: ['/img1.jpg', '/img2.jpg', '/img3.jpg']
-    },
-    {
-      title: 'We Rent',
-      tools: 'nextJs',
-      description: 'This is a description for project 2.',
-      images: ['/img4.jpg', '/img5.jpg', '/img6.jpg']
-    },
-  ];
 
   const handleExpand = (index: number) => {
     setExpandedProjectIndex(expandedProjectIndex === index ? null : index);
@@ -103,8 +82,8 @@ export default function Home() {
 
       {/* Project */}
       <div className="w-full">
-        <div className="">
-          <h1>PROJECT</h1>
+        <div className="p-4 border-b border-black/[.08] dark:border-white/[.145]">
+          <h1 className="text-6xl font-[family-name:var(--font-micro5)]">PROJECT</h1>
         </div>
         <div className="grid grid-cols-1">
           {projectDetails.map((project, index) => (
