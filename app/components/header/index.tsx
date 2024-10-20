@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Header() {
     return (
-        <header className="flex w-full h-full flex-col items-center sm:items-start border-b border-black/[.08] dark:border-white/[.145]">
+        <header className="flex w-full h-full flex-col items-center sm:items-start border-b border-black/15 dark:border-white/[.145]">
             <motion.div 
                 className="flex w-full justify-between text-wrap cursor-default font-semibold text-[16rem]"
                 whileHover="hover"          

@@ -8,7 +8,7 @@ interface MainContentProps {
 export const MainContent: React.FC<MainContentProps> = ({ isMainExpanded }) => {
     return (
         <motion.main
-        className="overflow-hidden border-b border-black/[.08] dark:border-white/[.145]"
+        className="overflow-hidden border-b border-black/15 dark:border-white/[.145]"
         initial={{ height: 0 }}
         animate={{ height: isMainExpanded ? 'auto' : 0 }}
         transition={{ duration: 0.5, ease: "circInOut" }}
@@ -36,7 +36,7 @@ export const MainContent: React.FC<MainContentProps> = ({ isMainExpanded }) => {
                 Self-taught Front End Developer with Creative Thinking.
             </h1>
             <p className="text-xl lg:text-2xl font-extralight">
-                Passionate and creative individual with a strong interest in Front End Development. Started as a designer for social media, Furniture, and Web Design. Now has been creating some projects as a Web Designer and Front End Developer.
+                Passionate and creative individual with a strong interest in FrontEnd Development. Started as a designer for social media, Furniture, and Web Design. Now has been creating some projects as a Web Designer and Front End Developer.
             </p>
             </div>
         </div>

@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div className="dark:text-white text-neutral-800 flex h-full w-full flex-col items-center min-h-screen px-8 font-[family-name:var(--font-geist-sans)]">
       <motion.div
-        className="fixed top-0 left-0 w-full h-full bg-neutral-900 z-50"
+        className="fixed top-0 left-0 w-full h-full bg-white dark:bg-neutral-900 z-50"
         initial={{ y: 0 }}
         animate={{ y: "-100%" }}
         transition={{ duration: 0.8, delay: 0.8, ease: "circInOut" }}
@@ -82,7 +82,7 @@ export default function Home() {
 
       {/* Project */}
       <div className="w-full">
-        <div className="p-4 border-b border-black/[.08] dark:border-white/[.145]">
+        <div className="p-4 border-b border-black/15 dark:border-white/[.145]">
           <h1 className="text-6xl font-[family-name:var(--font-micro5)]">PROJECT</h1>
         </div>
         <div className="grid grid-cols-1">
@@ -90,6 +90,7 @@ export default function Home() {
             <ProjectCard
               key={index}
               title={project.title}
+              year={project.year}
               tools={project.tools}
               description={project.description}
               images={project.images}
@@ -103,7 +104,7 @@ export default function Home() {
       {/* <footer>
         <TransitionWrapper isTransitioning={isTransitioning}>
           <button
-            className="rounded-md border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            className="rounded-md border border-solid border-black/15 dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
             onClick={() => handleTransition('/codelab')}
           >
             Go To CodeLab

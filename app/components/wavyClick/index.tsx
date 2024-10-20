@@ -44,7 +44,7 @@ export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
     };
 
     return (
-        <div className="inline-block text-neutral-700 hover:text-neutral-800 transition duration-300 delay-100">
+        <div className="inline-block text-white dark:text-neutral-700 hover:text-neutral-800 transition duration-300 delay-100">
             {/* Text Animation */}
             <motion.div
                 className="flex flex-col h-5 overflow-hidden"
@@ -78,7 +78,7 @@ export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
 
             {/* Bottom Border Animation */}
             <motion.div
-                className="h-[1px] bg-neutral-800 mt-1"
+                className="h-[1px] bg-white dark:bg-neutral-800 mt-1"
                 variants={borderVariants}
                 initial="initial"
                 animate={isExpanded ? "animate" : "exit"} // Animate based on isExpanded state
