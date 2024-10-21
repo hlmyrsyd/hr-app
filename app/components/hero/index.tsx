@@ -46,7 +46,7 @@ export const Hero = () => {
 
     return (
         <div 
-            className="flex flex-col items-start w-full text-[10rem] overflow-hidden"
+            className="flex flex-col items-start w-full text-[6rem] sm:text-[10rem] overflow-hidden"
         >
             <div className="text-center w-full">
                 <motion.p
