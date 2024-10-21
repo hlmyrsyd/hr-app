@@ -62,7 +62,7 @@ export const Hero = () => {
                     style={{ x: combinedX, fontFamily: 'var(--font-micro5)'  }}
                     
                 >
-                    FRONT END
+                    FRONTEND
                 </motion.p>
                 <motion.p
                     className="-mb-10"
