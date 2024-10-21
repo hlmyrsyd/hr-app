@@ -101,6 +101,21 @@ export default function Home() {
         </div>
       </div>
 
+      <footer className="w-full pb-4">
+        <div className="flex items-end h-[300px] ">
+            <div className="flex w-full justify-between border-t text-black/15 dark:text-white/[.145] border-black/15 dark:border-white/[.145]">
+              <div className="pt-2 flex w-full flex-col justify-center  ">
+                <p>©</p>
+                <p>2024</p>
+              </div>
+              <div className="flex flex-col justify-center text-right font-[family-name:var(--font-micro5)] text-3xl">
+                <p className="-mb-4">Hilmy</p>
+                <p className="-mb-4">Rasyad</p>
+              </div>
+            </div>
+        </div>
+      </footer>
+
       {/* <footer>
         <TransitionWrapper isTransitioning={isTransitioning}>
           <button
