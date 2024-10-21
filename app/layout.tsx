@@ -20,7 +20,7 @@ const micro5 = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Hilmy | Creative Developer",
+  title: "Hilmy | FrontEnd Developer",
   icons: {
     icon: "/icon.png"
   }
