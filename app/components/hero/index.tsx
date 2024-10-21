@@ -54,7 +54,7 @@ export const Hero = () => {
                     animate="animate"
                     style={{ x: combinedX,  fontFamily: 'var(--font-micro5)' }}
                 >
-                    CREATIVE
+                    INDEPENDENT
                 </motion.p>
                 <motion.p
                     className="-mb-20"
@@ -62,7 +62,7 @@ export const Hero = () => {
                     style={{ x: combinedX, fontFamily: 'var(--font-micro5)'  }}
                     
                 >
-                    INDEPENDENT
+                    FRONT END
                 </motion.p>
                 <motion.p
                     className="-mb-10"
