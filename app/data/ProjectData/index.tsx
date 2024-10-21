@@ -22,6 +22,20 @@ export const projectDetails: Project[] = [
         images: ['/image/werent1.png', '/image/werent2.png', '/image/werent3.png']
     },
     {
+        title: 'Mun Interior',
+        year: '2024',
+        tools: [ 'Web Design', 'Figma', 'NextJs', 'TailwindCSS'],
+        description: 'Create a web design and develop the website for Interior Design and Build consultant named Mun Interior. Focus on implementing the characteristics of Mun Interior on the website and showcasing its best work.',
+        images: ['/image/muninterior1.png', '/image/muninterior2.png', '/image/muninterior3.png']
+    },
+    {
+        title: 'Bertungku',
+        year: '2023',
+        tools: [ 'Web Design', 'Figma', 'NextJs', 'TailwindCSS'],
+        description: 'Contributing to the design and implementation of a website called Bertungku. This site is a collection of Interior studio works located in Bandung, Indonesia.',
+        images: ['/image/bertungku1.png', '/image/bertungku2.png', '/image/bertungku3.png']
+    },
+    {
         title: 'Gymshark',
         year: '2023',
         tools: [ 'Web Design', 'Figma'],
