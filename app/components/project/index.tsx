@@ -157,7 +157,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                     onMouseLeave={handleMouseLeave}
                                     animate={{ 
                                         flex: hoveredIndex === idx ? 4 : 3,
-                                        transition: { duration: 0.5, ease: 'circInOut' }
+                                        transition: { duration: 0.7, ease: 'easeInOut' }
                                     }}
                                 >
                                     <Image 
