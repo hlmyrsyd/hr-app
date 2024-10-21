@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 // import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { 
   Hero, 
   MainContent, 
@@ -26,6 +26,8 @@ export default function Home() {
   //     router.push(route);
   //   }, 1000);
   // };
+  
+  const infoButtonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMain = () => {
     setIsMainExpanded((prev) => !prev);
@@ -33,6 +35,13 @@ export default function Home() {
 
   const handleExpand = (index: number) => {
     setExpandedProjectIndex(expandedProjectIndex === index ? null : index);
+  };
+
+  const handleGetInTouch = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to top
+    setTimeout(() => {
+      infoButtonRef.current?.click(); // Auto-click the Information button after scrolling
+    }, 500); // Delay the click to allow scrolling to finish
   };
 
   return (
@@ -57,6 +66,7 @@ export default function Home() {
 
         <div className="flex justify-evenly">
           <motion.button 
+            ref={infoButtonRef}
             onClick={toggleMain}
             title="Checkout Information about me"
           >
@@ -102,7 +112,24 @@ export default function Home() {
       </div>
 
       <footer className="w-full pb-4">
-        <div className="flex items-end h-[300px] ">
+        <div className="flex flex-col justify-end items-end h-[300px] gap-4">
+            {/* clickable and redirect to  main content, and autoclick the information*/}
+            <div
+              className="cursor-pointer flex w-full bg-neutral-800/25 dark:bg-white/25 dark:text-neutral-800 text-white py-2 overflow-hidden transition duration-300 hover:dark:bg-white hover:bg-neutral-800 ease-in-out"
+              onClick={handleGetInTouch}
+            >
+              <motion.p
+                className="text-6xl font-bold font-[family-name:var(--font-micro5)]"
+                animate={{ x: ['300%', '-300%'] }}  // Moving from right to left
+                transition={{
+                    duration: 12,  // Duration of one full loop
+                    ease: "linear", // Smooth linear movement
+                    repeat: Infinity, // Infinite loop
+                }}
+              >
+                Let's get in touch
+              </motion.p>
+            </div>
             <div className="flex w-full justify-between border-t text-black/15 dark:text-white/[.145] border-black/15 dark:border-white/[.145]">
               <div className="pt-2 flex w-full flex-col justify-center  ">
                 <p>©</p>
