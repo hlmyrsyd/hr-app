@@ -119,8 +119,8 @@ export default function Home() {
               onClick={handleGetInTouch}
             >
               <motion.p
-                className="text-6xl font-bold font-[family-name:var(--font-micro5)]"
-                animate={{ x: ['300%', '-300%'] }}  // Moving from right to left
+                className="flex w-full text-6xl font-bold font-[family-name:var(--font-micro5)]"
+                animate={{ x: ['100%', '-100%'] }}  // Moving from right to left
                 transition={{
                     duration: 12,  // Duration of one full loop
                     ease: "linear", // Smooth linear movement

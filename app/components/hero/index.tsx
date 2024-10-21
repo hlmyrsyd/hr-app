@@ -17,7 +17,7 @@ export const Hero = () => {
     const continuousX:MotionValue<number> = useMotionValue(0);
 
     useAnimationFrame( () => {
-        const moveSpeed = 1.2; // Control speed here
+        const moveSpeed = 2; // Control speed here
         continuousX.set(continuousX.get() - moveSpeed); // Move continuously left
         if (continuousX.get() <= -1800) {
             continuousX.set(1800); // Reset position when off-screen to create a loop
@@ -48,7 +48,7 @@ export const Hero = () => {
         <div 
             className="flex flex-col items-start w-full text-[10rem] overflow-hidden"
         >
-            <div className="text-center">
+            <div className="text-center w-full">
                 <motion.p
                     className="-mt-10 -mb-20"
                     animate="animate"
