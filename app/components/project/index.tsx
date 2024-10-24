@@ -155,6 +155,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                     key={idx}
                                     onMouseEnter={() => handleMouseEnter(idx)}
                                     onMouseLeave={handleMouseLeave}
+                                    initial={{ flex: 1 }}
                                     animate={{ 
                                         flex: hoveredIndex === idx ? 4 : 3,
                                         transition: { duration: 0.7, ease: 'easeInOut' }
