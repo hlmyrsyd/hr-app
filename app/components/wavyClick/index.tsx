@@ -8,7 +8,7 @@ interface WavyClickProps {
 
 export const WavyClick: React.FC<WavyClickProps> = ({ isExpanded }) => {
     const expandText = "Expand";
-    const closeText = "Closed";
+    const closeText = "Close";
 
     const letterVariants = {
         initial: { y: 0 }, // Default position
