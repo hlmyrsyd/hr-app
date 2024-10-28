@@ -78,7 +78,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     className="cursor-pointer flex p-4 h-full w-full justify-between items-center text-white dark:text-neutral-700"
                 >
                     <motion.h3 
-                        className="text-6xl -my-4 font-semibold"
+                        className="text-4xl -my-4 font-semibold"
                         initial={{ x: 0, opacity: 0 }}
                         animate={isHovered ? { x: '10px', opacity: 1 } : { opacity: 0 }}
                         transition={{ delay: 0.2 }}
