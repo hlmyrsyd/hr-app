@@ -9,7 +9,7 @@ export default function Header() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setInitialVisible(false);
-        }, 3000); // Make the text visible for 2 seconds
+        }, 3000); 
 
         return () => clearTimeout(timer);
     }, []);

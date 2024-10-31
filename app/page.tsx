@@ -1,31 +1,31 @@
 'use client'
 
 import { motion } from "framer-motion";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { 
   Hero, 
   MainContent, 
   ProjectCard, 
-  // TransitionWrapper, 
+  TransitionWrapper, 
   WavyText 
 } from "./components";
 import { Header } from "./components";
 import { projectDetails } from "./data";
 
 export default function Home() {
-  // const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMainExpanded, setIsMainExpanded] = useState(false);
   const [expandedProjectIndex, setExpandedProjectIndex] = useState<number | null>(null);
-  // const router = useRouter();
+  const router = useRouter();
 
 
-  // const handleTransition = (route: string) => {
-  //   setIsTransitioning(true);
-  //   setTimeout(() => {
-  //     router.push(route);
-  //   }, 1000);
-  // };
+  const handleTransition = (route: string) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      router.push(route);
+    }, 1000);
+  };
   
   const infoButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -72,6 +72,14 @@ export default function Home() {
           >
             <WavyText text="Information" />
           </motion.button>
+          <TransitionWrapper isTransitioning={isTransitioning}>
+            <a
+              className="cursor-pointer hidden lg:flex"
+              onClick={() => handleTransition('/codelab')}
+            >
+              <WavyText text="CodeLab" />
+            </a>
+          </TransitionWrapper>
           <a 
             href="https://www.linkedin.com/in/hilmyrasyad/"
             target="_blank"
@@ -142,17 +150,6 @@ export default function Home() {
             </div>
         </div>
       </footer>
-
-      {/* <footer>
-        <TransitionWrapper isTransitioning={isTransitioning}>
-          <button
-            className="rounded-md border border-solid border-black/15 dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            onClick={() => handleTransition('/codelab')}
-          >
-            Go To CodeLab
-          </button>
-        </TransitionWrapper>
-      </footer> */}
     </div>
   );
 }

@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <>
+        <div className="w-full h-full">
             <motion.div
                 className="fixed top-0 left-0 w-full h-full bg-neutral-900 z-50"
                 initial={{ y: 0 }} // Fullscreen overlay
@@ -42,23 +42,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                             className="w-full rounded-md border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-between hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44 mb-4"
                             onClick={() => handleTransition('/')}
                         >
-                            <h1>Home</h1>
+                            <h1>Let's get back</h1>
                         </button>
                         <Link
                             className="w-full rounded-md border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-between hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44 mb-4"
-                            href="/codelab/ssrcsr"
+                            href="/codelab"
                         >
-                        <h1>CSR vs SSR</h1>
+                            <h1>CodeLab</h1>
+                        </Link>
+                        <Link
+                            className="w-full rounded-md border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-between hover:bg-[#f2f2f2] dark:hover:bg-[#2a2a2a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44 mb-4"
+                            href="/codelab/infiniteText"
+                        >
+                            <h1>Infinite Text</h1>
                         </Link>
                     </Sidebar>
                 </TransitionWrapper>
 
-                <main
+                <div
                     className="h-full w-full px-4 py-20"
                 >
                     {children}
-                </main>
+                </div>
             </div>
-        </>
+        </div>
     );
 }
