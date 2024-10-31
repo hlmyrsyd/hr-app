@@ -5,7 +5,7 @@ import CodeBox from "../components/codeBox/codeBox";
 export default function InfiniteText() {
     const sampleCode = `
 only test code
-    `
+    `                       
     
     return (
         <div className="flex flex-col">
