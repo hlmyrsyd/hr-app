@@ -1,7 +1,11 @@
-// components/CodeBox.js
 import React, { useState } from 'react';
 
-const CodeBox = ({ code, language = 'JavaScript' }:any) => {
+interface CodeBoxProps {
+    code: string;
+    language: 'javascript' | 'typescript' | 'python' | 'html' | 'css' | 'json' | string; // You can add more languages or use string if it's more flexible
+}
+
+const CodeBox: React.FC<CodeBoxProps> = ({ code, language }) => {
     const [isCopied, setIsCopied] = useState(false);
 
     const handleCopy = async () => {
