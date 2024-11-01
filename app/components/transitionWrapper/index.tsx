@@ -21,7 +21,7 @@ export const TransitionWrapper = ({ children, isTransitioning }: { children: Rea
                         delay: 0.5,
                         ease: "circInOut",
                     }}
-                    className="fixed top-0 left-0 w-screen h-screen bg-neutral-900 z-50"
+                    className="fixed top-0 left-0 w-screen h-screen bg-white dark:bg-neutral-900 z-50"
                 />
             )}
             <div>
