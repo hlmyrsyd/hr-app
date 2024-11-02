@@ -21,14 +21,32 @@ export const SetUpCode = [
         code: 
 `'use client'
 
-import { motion } from "framer-motion";
+import InfiniteText from "./components/InfiniteText";
+const Text1 = () => (
+    <p>
+        Infinite Text
+    </p>
+);
 
 export default function Home() {
     return (
         <main>
-            <InfiniteText />
+            <InfiniteText InfiniteTextComponent={Text} />
         </main>
     );
 }`
+    },
+    {
+        name: 'InfiniteText.tsx',
+        language: 'typescript',
+        code:
+`import { motion } from "framer-motion";
+
+interface InfiniteTextProp {
+    InfiniteTextComponent: React.FC;
+}
+
+export 
+`
     }
 ]

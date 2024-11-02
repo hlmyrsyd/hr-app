@@ -1,7 +1,7 @@
 'use client'
 import InfiniteText from "./infiniteText";
 
-const MovingText = () => (
+const Text1 = () => (
     <div 
         className="flex w-full justify-around"
     >
@@ -19,7 +19,7 @@ export default function page() {
                 <h1>This is CodeGround to test <a href="/codelab">CodeLab</a> Documentation</h1>
             </code>
             <div className="h-full flex items-center justify-center">
-                <InfiniteText InfiniteTextComponent={MovingText} />
+                <InfiniteText InfiniteTextComponent={Text1} />
             </div>
         </div>
     )

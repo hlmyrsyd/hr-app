@@ -3,13 +3,6 @@ import CodeBox from "../components/codeBox/codeBox";
 import { CreateProject, InstallFramer, SetUpCode } from "./lib/codeBoxLib";
 
 export default function InfiniteText() {           
-    const setUpCode = 
-`<div> //Wrap Container
-    <div> // 
-
-    </div>
-</div>`
-    ;
     
     return (
         <div className="flex flex-col">
