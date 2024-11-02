@@ -31,17 +31,19 @@ const CodeBox: React.FC<CodeBoxProps> = ({ files }) => {
 
             {/* Copy button and file language */}
             <div className="flex items-center rounded-t-xl justify-between">
-                {files.map(file => (
-                    <button
-                        key={file.name}
-                        onClick={() => setActiveTab(file.name)}
-                        className={`py-2 px-4 ${
-                            activeTab === file.name ? 'bg-neutral-800 text-white' : 'text-neutral-500'
-                        }`}
-                    >
-                        {file.name}
-                    </button>
-                ))}
+                <div>
+                    {files.map(file => (
+                        <button
+                            key={file.name}
+                            onClick={() => setActiveTab(file.name)}
+                            className={`py-2 px-4 hover:bg-neutral-800 ${
+                                activeTab === file.name ? 'bg-neutral-800 text-white' : 'text-neutral-500'
+                            }`}
+                        >
+                            {file.name}
+                        </button>
+                    ))}
+                </div>
                 <button
                     onClick={handleCopy}
                     className="flex items-center px-4 text-neutral-600 hover:text-neutral-400 transition"
@@ -53,7 +55,7 @@ const CodeBox: React.FC<CodeBoxProps> = ({ files }) => {
             {/* Code Display */}
             {activeFile && (
                 <SyntaxHighlighter
-                    className="rounded-b-xl bg-[#222] !m-0"
+                    className="rounded-b-xl bg-[#222] !m-0 "
                     language={activeFile.language}
                     style={codeStyle}
                     showLineNumbers={true}

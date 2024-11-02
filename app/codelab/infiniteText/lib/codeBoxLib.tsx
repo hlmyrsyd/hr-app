@@ -22,7 +22,7 @@ export const SetUpCode = [
 `'use client'
 
 import InfiniteText from "./components/InfiniteText";
-const Text1 = () => (
+const Text = () => (
     <p>
         Infinite Text
     </p>
@@ -46,7 +46,17 @@ interface InfiniteTextProp {
     InfiniteTextComponent: React.FC;
 }
 
-export 
-`
+export default function InfiniteText ({ InfiniteTextComponent }: InfiniteTextProp) {
+    return (
+        <div> // This will be the main container
+            <div> // This where the div for the Infinite text 1
+                <InfiniteTextComponent />
+            </div>
+            <div> // This where the div for the Infinite text 2
+                <InfiniteTextComponent />
+            </div>
+        </div>
+    );
+};`
     }
 ]
