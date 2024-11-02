@@ -1,6 +1,6 @@
 'use client'
 import CodeBox from "../components/codeBox/codeBox";
-import { CreateProject, InstallFramer, SetUpCode } from "./lib/codeBoxLib";
+import { CreateProject, FinalCode, InstallFramer, SetUpCode } from "./lib/codeBoxLib";
 
 export default function InfiniteText() {           
     
@@ -27,7 +27,7 @@ export default function InfiniteText() {
                     autoPlay
                     loop 
                     muted
-                    className="w-full h-auto rounded-lg"
+                    className="w-full h-auto rounded-xl"
                 />
             </section>
 
@@ -56,10 +56,29 @@ export default function InfiniteText() {
                     <h1 className="text-2xl">Setting Up the Project</h1>
                     <div className="flex flex-col gap-2 w-full">
                         <p>
-                            Create new file for the InfiniteText inside the page.tsx so it can be used everytime
+                            Create new file for the InfiniteText and import it in the page.tsx so it can be used everytime
                         </p>
                         <CodeBox files={SetUpCode} />
                     </div>
+                    <h2 className="text-xl pt-5">We should have something like this</h2>
+                </div>
+
+                <div>
+                    <h1 className="text-2xl">Final Step</h1>
+                    <div className="flex flex-col gap-2 w-full">
+                        <p>
+                            Finally, adjust the width and duration to control its movement
+                        </p>
+                        <CodeBox files={FinalCode} />
+                    </div>
+                    <h2 className="text-xl py-5">We should have something like this</h2>
+                    <video 
+                        src="/videos/FinalInfiniteText.mp4" 
+                        autoPlay
+                        loop 
+                        muted
+                        className="w-full h-auto rounded-xl"
+                    />
                 </div>
             </section>
         </div> 
