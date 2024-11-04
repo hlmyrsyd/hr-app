@@ -15,10 +15,10 @@ export const MainContent: React.FC<MainContentProps> = ({ isMainExpanded }) => {
         >
         <div className="flex flex-col lg:flex-row w-full gap-10 py-10">
             <div className="flex-1 flex flex-col w-full lg:w-1/4">
-            <h1 className="font-semibold">Location</h1>
-            <div className="font-light cursor-default" title="One of the Beautiful Cities in Indonesia">
-                <WavyText text="Bandung, Indonesia" />
-            </div>
+                <h1 className="font-semibold">Location</h1>
+                <div className="font-light cursor-default" title="One of the Beautiful Cities in Indonesia">
+                    <WavyText text="Bandung, Indonesia" />
+                </div>
             </div>
             <div className="flex-1 flex flex-col w-full lg:w-1/4">
             <h1 className="font-semibold">Contact</h1>
