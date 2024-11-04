@@ -75,7 +75,7 @@ export default function Home() {
           <TransitionWrapper isTransitioning={isTransitioning}>
             <a
               className="cursor-pointer hidden lg:flex"
-              onClick={() => handleTransition('https://www.codelab.hilmyrasyad.site/')}
+              onClick={() => handleTransition('https://codelab.hilmyrasyad.site/')}
             >
               <WavyText text="CodeLab" />
             </a>
